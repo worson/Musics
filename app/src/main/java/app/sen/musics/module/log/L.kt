@@ -11,7 +11,7 @@ import java.io.StringWriter
 object L  {
     private var logLevel=Log.INFO
 
-    const val TAG_PREFIX = "Notta"
+    const val TAG_PREFIX = "WSX"
 
 
     fun init( logLevel:Int) {

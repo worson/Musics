@@ -1,22 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context=".ui.home.HomeFragment">
-
-  <TextView
-    android:id="@+id/text_home"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8dp"
-    android:textAlignment="center"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:context=".ui.transcribe.TranscribeDetailActivity">
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/barPlayer"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:maxHeight="2dp"
+            android:paddingStart="0dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="0dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_home_seekbar"
+            android:thumb="@drawable/seek_bar_thumb"
+            android:thumbOffset="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="50" />
+
+        <TextView
+            android:id="@+id/tvPlayerProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/text_title"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/barPlayer"
+            app:layout_constraintTop_toBottomOf="@id/barPlayer"
+            tools:text="00:00:00" />
+
+        <TextView
+            android:id="@+id/tvPlayerRemain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/text_title"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/barPlayer"
+            app:layout_constraintTop_toBottomOf="@id/barPlayer"
+            tools:text="00:00:00" />
+
+        <ImageView
+            android:id="@+id/ivPlayerBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/home_player_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayerProgress" />
+
+        <ImageView
+            android:id="@+id/ivPlayerBackwardBtn"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/ic_backward"
+            app:layout_constraintBottom_toBottomOf="@id/ivPlayerBtn"
+            app:layout_constraintEnd_toStartOf="@id/ivPlayerBtn"
+            app:layout_constraintTop_toTopOf="@id/ivPlayerBtn" />
+
+        <ImageView
+            android:id="@+id/ivPlayerForwardBtn"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="45dp"
+            android:src="@drawable/ic_forward"
+            app:layout_constraintBottom_toBottomOf="@id/ivPlayerBtn"
+            app:layout_constraintStart_toEndOf="@id/ivPlayerBtn"
+            app:layout_constraintTop_toTopOf="@id/ivPlayerBtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
