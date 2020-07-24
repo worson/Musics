@@ -1,4 +1,4 @@
-package app.sen.musics.ui.dashboard
+package app.sen.musics.ui.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import app.sen.musics.R
 
-class DashboardFragment : Fragment() {
+class MusicFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var musicViewModel: MusicViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+        musicViewModel =
+                ViewModelProviders.of(this).get(MusicViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        musicViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
