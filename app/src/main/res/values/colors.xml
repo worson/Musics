@@ -18,4 +18,7 @@
   <color name="bg_light">#FFFFFF</color>
 
   <color name="list_divider">#14FFFFFF</color>
+
+  <color name="toast_normal_text">#FFFFFFFF</color>
+  <color name="toast_normal_bg">#FF3D3D3D</color>
 </resources>
