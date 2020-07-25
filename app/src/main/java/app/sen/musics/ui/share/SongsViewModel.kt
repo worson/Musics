@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import app.sen.musics.module.filter.SongFilter
 import app.sen.musics.module.log.L
 import app.sen.musics.source.LocalSongsSource
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -14,7 +15,8 @@ class SongsViewModel : ViewModel() {
 
 
     fun importFilePath(file:File){
-        viewModelScope.launch {
+        L.d(TAG, { "importFilePath: ${file.absolutePath}" })
+        viewModelScope.launch(Dispatchers.IO) {
             val list=songFilter.importFortPath(file)
             L.i(TAG, { "importFilePath: size ${list.size}" })
             list.forEach {

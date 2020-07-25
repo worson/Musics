@@ -46,14 +46,17 @@ class SettingsFragment : Fragment() {
     }
 
     private fun initView() {
-        val editText= EditText(requireContext())
-        editText.hint="输入需要添加的文件或文件夹位置"
+
         btnAdd.setOnClickListener {
             PermissionX.init(activity)
                 .permissions(Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .request { allGranted, grantedList, deniedList ->
                     if (allGranted) {
+                        val editText= EditText(requireContext())
+                        editText.hint="输入需要添加的文件或文件夹位置"
+//                        editText.setText("/storage/emulated/0/12530/download")
+                        editText.setText("/sdcard/aaaa")
                         AlertDialog.Builder(requireContext())
                             .setTitle("添加文件目录")
                             .setView(editText)
