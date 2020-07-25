@@ -27,7 +27,7 @@ object LocalSongsSource{
         dao.deleteSong(uid,uuid)
     }
 
-    suspend fun queryLiveSongs(): LiveData<List<SongEntity>> {
+    fun queryLiveSongs(): LiveData<List<SongEntity>> {
         return dao.queryLiveSongs(uid)
     }
 

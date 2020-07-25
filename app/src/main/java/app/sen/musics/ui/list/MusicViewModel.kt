@@ -2,12 +2,15 @@ package app.sen.musics.ui.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import app.sen.musics.db.entity.SongEntity
+import app.sen.musics.source.LocalSongsSource
 
 class MusicViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    val songs: LiveData<List<SongEntity>> = Transformations.map(LocalSongsSource.queryLiveSongs()){
+        it
     }
-    val text: LiveData<String> = _text
+
 }

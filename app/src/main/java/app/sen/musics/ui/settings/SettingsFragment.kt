@@ -11,16 +11,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import app.sen.musics.R
+import app.sen.musics.module.log.L
 import app.sen.musics.ui.share.SongsViewModel
 import app.sen.musics.utils.T
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.fragment_settings.*
 import java.io.File
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : Fragment {
+    val  TAG = "SettingsFragment"
 
     private lateinit var settingsViewModel: SettingsViewModel
     private lateinit var songViewModel: SongsViewModel
+
+    constructor()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -36,13 +40,18 @@ class SettingsFragment : Fragment() {
         settingsViewModel.text.observe(viewLifecycleOwner, Observer {
 
         })
-
         return root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        L.d(TAG, { "onActivityCreated: " })
+        initView()
     }
 
     override fun onResume() {
         super.onResume()
-        initView()
+
     }
 
     private fun initView() {
