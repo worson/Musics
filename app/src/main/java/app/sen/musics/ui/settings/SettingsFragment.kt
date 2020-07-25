@@ -11,13 +11,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import app.sen.musics.R
+import app.sen.musics.ui.share.SongsViewModel
 import app.sen.musics.utils.T
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.fragment_settings.*
+import java.io.File
 
 class SettingsFragment : Fragment() {
 
     private lateinit var settingsViewModel: SettingsViewModel
+    private lateinit var songViewModel: SongsViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -26,6 +29,8 @@ class SettingsFragment : Fragment() {
     ): View? {
         settingsViewModel =
                 ViewModelProviders.of(this).get(SettingsViewModel::class.java)
+        songViewModel =
+                ViewModelProviders.of(this).get(SongsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
 
         settingsViewModel.text.observe(viewLifecycleOwner, Observer {
@@ -56,7 +61,15 @@ class SettingsFragment : Fragment() {
                                     a,b ->
                                 if (editText.text.toString().isNullOrBlank()){
                                     T.normal("请输入文件夹目录").show()
+                                    return@setPositiveButton
                                 }
+                                val path=File(editText.text.toString())
+                                if (!path.exists()){
+                                    T.normal("路径不存在").show()
+                                    return@setPositiveButton
+                                }
+                                songViewModel.importFilePath(path)
+
                             }.show()
                     } else {
                         T.normal("请授予相关权限").show()

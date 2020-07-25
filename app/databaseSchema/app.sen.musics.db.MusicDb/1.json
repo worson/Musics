@@ -2,15 +2,21 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c112837bb2241f5e6d764f2ae818b204",
+    "identityHash": "425360eccdc1fb2bbb6c197ec4d4807d",
     "entities": [
       {
         "tableName": "SongEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `name` TEXT NOT NULL, `singer` TEXT NOT NULL, `fullName` TEXT NOT NULL, `fileName` TEXT NOT NULL, `audioType` TEXT NOT NULL, PRIMARY KEY(`uuid`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uuid` TEXT NOT NULL, `uid` TEXT NOT NULL, `name` TEXT NOT NULL, `singer` TEXT NOT NULL, `filePath` TEXT NOT NULL, `fileName` TEXT NOT NULL, `audioType` TEXT NOT NULL, PRIMARY KEY(`uuid`))",
         "fields": [
           {
             "fieldPath": "uuid",
             "columnName": "uuid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -27,8 +33,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "fullName",
-            "columnName": "fullName",
+            "fieldPath": "filePath",
+            "columnName": "filePath",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -102,7 +108,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c112837bb2241f5e6d764f2ae818b204')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '425360eccdc1fb2bbb6c197ec4d4807d')"
     ]
   }
 }

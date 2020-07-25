@@ -8,12 +8,14 @@ import androidx.room.PrimaryKey
  * @author wangshengxing  07.24 2020
  */
 @Entity
-data class SongEntity(@PrimaryKey
-                 val uuid: String,
-                 val name:  String,
-                 val singer:  String,
-                 val fullName: String,
-                 val fileName: String,
-                 val audioType: String
+data class SongEntity(
+    @PrimaryKey
+    val uuid: String,
+    val uid: String,
+    val name: String,
+    val singer: String,
+    val filePath: String,
+    val fileName: String,
+    val audioType: String
 ) {
 }

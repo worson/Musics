@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import app.sen.musics.db.dao.SongEntityDao
 import app.sen.musics.db.entity.SongEntity
 import app.sen.musics.db.entity.SongListEntity
 import app.sen.musics.utils.GlobalContext
@@ -17,6 +18,8 @@ import app.sen.musics.utils.GlobalContext
 )
 
 abstract class MusicDb : RoomDatabase(){
+
+    abstract fun getSongEntityDao(): SongEntityDao
 
     companion object {
         val instance = Holder.INSTANCE
