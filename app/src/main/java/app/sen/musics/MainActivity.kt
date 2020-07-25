@@ -22,6 +22,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        navController.navigate(R.id.navigation_notifications)
+        navController.navigate(R.id.navigation_dashboard)
     }
 }

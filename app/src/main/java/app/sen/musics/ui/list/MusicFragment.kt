@@ -4,16 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import app.sen.musics.R
 import app.sen.musics.module.log.L
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_music_list.*
 
 class MusicFragment : Fragment() {
 
@@ -30,7 +27,7 @@ class MusicFragment : Fragment() {
     ): View? {
         musicViewModel =
                 ViewModelProviders.of(this).get(MusicViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val root = inflater.inflate(R.layout.fragment_music_list, container, false)
         return root
     }
 
